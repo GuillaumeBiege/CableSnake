@@ -59,6 +59,7 @@
     <Compile Include="Assets\Sources\Gameplay\PlayerController.cs" />
     <Compile Include="Assets\Sources\Gameplay\CamAxisControl.cs" />
     <Compile Include="Assets\Sources\Gameplay\CableBehaviour.cs" />
+    <Compile Include="Assets\Sources\Debug\FPSText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
