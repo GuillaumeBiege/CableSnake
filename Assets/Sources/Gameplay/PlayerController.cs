@@ -63,32 +63,21 @@ public class PlayerController : MonoBehaviour
         jumpControlsEnable = false;
 
         float sphereInitPosition = playerSphere.transform.localPosition.y;
-        float sphereMaxPosition = sphereInitPosition + jumpHeight;
 
         float timer = 0f;
 
         while (timer < 1f)
         {
             yield return null;
-            timer += Time.deltaTime / 0.5f;
+            timer += Time.deltaTime / 1f;
 
             //Range check
             timer = (timer > 1f) ? 1f : timer;
 
+            float parabolaY = -4 * jumpHeight * timer * timer + 4 * jumpHeight * timer;
+
             //Jump go up
-            playerSphere.transform.localPosition = new Vector3(0f, Mathf.Lerp(sphereInitPosition, sphereMaxPosition, timer), 0f);
-        }
-
-        while (timer > 0f)
-        {
-            yield return null;
-            timer -= Time.deltaTime / .4f;
-
-            //Range check
-            timer = (timer < 0f) ? 0f : timer;
-
-            //Jump get back down
-            playerSphere.transform.localPosition = new Vector3(0f, Mathf.Lerp(sphereInitPosition, sphereMaxPosition, timer), 0f);
+            playerSphere.transform.localPosition = new Vector3(0f, sphereInitPosition + parabolaY, 0f);
         }
 
 
