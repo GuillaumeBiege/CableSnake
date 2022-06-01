@@ -58,8 +58,11 @@
   <ItemGroup>
     <Compile Include="Assets\Sources\Gameplay\PlayerController.cs" />
     <Compile Include="Assets\Sources\Gameplay\CamAxisControl.cs" />
-    <Compile Include="Assets\Sources\Gameplay\CableBehaviour.cs" />
     <Compile Include="Assets\Sources\Debug\FPSText.cs" />
+    <Compile Include="Assets\Sources\Gameplay\CableBehaviour.cs" />
+    <Compile Include="Assets\Sources\Gameplay\GameManager.cs" />
+    <Compile Include="Assets\Sources\Gameplay\SoundManager.cs" />
+    <Compile Include="Assets\Sources\Gameplay\ObstacleBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

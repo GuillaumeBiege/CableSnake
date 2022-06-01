@@ -31,4 +31,14 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("Mouse % = " + transformedNorm.ToString());
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.LogWarning("Collision !");
+        ObstacleBehaviour obstacle = other.GetComponent<ObstacleBehaviour>();
+        if (obstacle != null)
+        {
+            Debug.LogWarning("You Lose !");
+        }
+    }
 }
