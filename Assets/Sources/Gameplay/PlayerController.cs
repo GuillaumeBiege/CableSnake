@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [Space(10), Header("Variables")]
     [SerializeField] float maxRotSpeed = 2f;
     [SerializeField] float jumpHeight = 3f;
-    [SerializeField] bool jumpControlsEnable = true;
+    [SerializeField] bool ControlsEnable = true;
 
         //Double click
     float lastClickTime = 0f;
@@ -26,24 +26,33 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
+        
+
         //Jump controls
-        if (Input.GetMouseButtonDown(0) && jumpControlsEnable)
+        if (Input.GetMouseButtonDown(0) && ControlsEnable)
         {
-            float timeSinceLastClick = Time.time - lastClickTime;
+            //float timeSinceLastClick = Time.time - lastClickTime;
 
-            if (timeSinceLastClick <= doubleClickTolerance)
+            //if (timeSinceLastClick <= doubleClickTolerance)
+            //{
+            //    Debug.Log("Jump !");
+
+            //    StartCoroutine(JumpPlayerSphere());
+            //}
+
+            //lastClickTime = Time.time;
+
+            float mousePosNormY = Input.mousePosition.y / Screen.height;
+            if (mousePosNormY <= 0.15f)
             {
-                Debug.Log("Jump !");
-
                 StartCoroutine(JumpPlayerSphere());
+                return;
             }
-
-            lastClickTime = Time.time;
-
         }
 
         //Slide movement controls
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && ControlsEnable)
         {
             float mousePosNorm = Input.mousePosition.x / Screen.width;
 
@@ -60,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator JumpPlayerSphere()
     {
-        jumpControlsEnable = false;
+        ControlsEnable = false;
 
         float sphereInitPosition = playerSphere.transform.localPosition.y;
 
@@ -81,7 +90,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        jumpControlsEnable = true;
+        ControlsEnable = true;
     }
 
 
