@@ -66,6 +66,7 @@
     <Compile Include="Assets\Sources\UI\DefeatMenu.cs" />
     <Compile Include="Assets\Sources\Gameplay\PlayerSphereDetector.cs" />
     <Compile Include="Assets\Sources\Gameplay\FoodBehaviour.cs" />
+    <Compile Include="Assets\Sources\UI\MainMenuManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

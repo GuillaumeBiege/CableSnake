@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public delegate void VoidDelegate();
+
 public class GameManager : MonoBehaviour
 {
     #region SingletonPattern
@@ -24,10 +26,23 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    public enum GameState
+    {
+        INGAME,
+        VICTORY,
+        DEFEAT
+    }
+
     //References
 
     //Variables
-    [SerializeField] int currentFoodNumber = 1; 
+    [SerializeField] int currentFoodNumber = 1;
+    [SerializeField] GameState currentGameState = GameState.INGAME;
+
+    //Event
+    public event VoidDelegate ONGameMode;
+    public event VoidDelegate ONVictoryMode;
+    public event VoidDelegate ONDefeatMode;
 
 
     private void Start()
@@ -48,8 +63,47 @@ public class GameManager : MonoBehaviour
             ResetTimeScale();
         }
         /////////////////DEBUG
+
+
+        CheckVictoryDefeatCondition();
     }
 
+    void CheckVictoryDefeatCondition()
+    {
+        //Defeat conditions
+        if (currentFoodNumber <= 0)
+        {
+            currentFoodNumber = 0;
+
+            ChangeGameState(GameState.DEFEAT);
+        }
+
+        
+    }
+
+    void ChangeGameState(GameState gs)
+    {
+        currentGameState = gs;
+
+        switch (gs)
+        {
+            case GameState.INGAME:
+                ONGameMode?.Invoke();
+                break;
+            case GameState.VICTORY:
+                ONVictoryMode?.Invoke();
+                break;
+            case GameState.DEFEAT:
+                ONDefeatMode?.Invoke();
+                break;
+            default:
+                break;
+        }
+    }
+
+
+
+    #region Collision management
     public void ObstacleCollision()
     {
         Debug.LogWarning("You Lose !");
@@ -61,7 +115,7 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("You got food !");
         currentFoodNumber++;
     }
-
+    #endregion
 
     #region Time scale effects
 
