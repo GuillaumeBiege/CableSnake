@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     //References
 
     //Variables
+    [SerializeField] int currentFoodNumber = 1; 
 
 
     private void Start()
@@ -52,6 +53,13 @@ public class GameManager : MonoBehaviour
     public void ObstacleCollision()
     {
         Debug.LogWarning("You Lose !");
+        currentFoodNumber -= 3;
+    }
+
+    public void FoodCollision()
+    {
+        Debug.LogWarning("You got food !");
+        currentFoodNumber++;
     }
 
 

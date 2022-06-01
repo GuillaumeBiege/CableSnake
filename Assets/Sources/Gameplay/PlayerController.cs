@@ -27,22 +27,9 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         
-        
-
         //Jump controls
         if (Input.GetMouseButtonDown(0) && ControlsEnable)
         {
-            //float timeSinceLastClick = Time.time - lastClickTime;
-
-            //if (timeSinceLastClick <= doubleClickTolerance)
-            //{
-            //    Debug.Log("Jump !");
-
-            //    StartCoroutine(JumpPlayerSphere());
-            //}
-
-            //lastClickTime = Time.time;
-
             float mousePosNormY = Input.mousePosition.y / Screen.height;
             if (mousePosNormY <= 0.15f)
             {
@@ -97,10 +84,19 @@ public class PlayerController : MonoBehaviour
     //Recieve collision information form the visual and apply proper behaviour
     public void ProcessCollision(GameObject other)
     {
+        //Process obstacles
         ObstacleBehaviour obstacle = other.GetComponent<ObstacleBehaviour>();
         if (obstacle != null)
         {
             GameManager.Instance.ObstacleCollision();
+        }
+
+        //Process food
+        FoodBehaviour food = other.GetComponent<FoodBehaviour>();
+        if (food != null)
+        {
+            GameManager.Instance.FoodCollision();
+            food.KillItself();
         }
     }
 
