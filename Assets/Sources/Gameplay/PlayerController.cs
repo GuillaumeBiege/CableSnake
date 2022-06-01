@@ -5,15 +5,44 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //References
-
+    [Header("References")]
+    [SerializeField] GameObject playerSphere = default;
 
     //Variables
+    [Space(10), Header("Variables")]
     [SerializeField] float maxRotSpeed = 2f;
+    [SerializeField] float jumpHeight = 3f;
+    [SerializeField] bool jumpControlsEnable = true;
+
+        //Double click
+    float lastClickTime = 0f;
+    [SerializeField] float doubleClickTolerance = 0.2f;
+
+    private void Awake()
+    {
+        playerSphere = GetComponentInChildren<PlayerSphereDetector>().gameObject;
+    }
 
 
     private void Update()
     {
-        //Controls
+        //Jump controls
+        if (Input.GetMouseButtonDown(0) && jumpControlsEnable)
+        {
+            float timeSinceLastClick = Time.time - lastClickTime;
+
+            if (timeSinceLastClick <= doubleClickTolerance)
+            {
+                Debug.Log("Jump !");
+
+                StartCoroutine(JumpPlayerSphere());
+            }
+
+            lastClickTime = Time.time;
+
+        }
+
+        //Slide movement controls
         if (Input.GetMouseButton(0))
         {
             float mousePosNorm = Input.mousePosition.x / Screen.width;
@@ -26,13 +55,49 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Rotate(Vector3.forward, -maxRotSpeed);
             }
-            
-
-            //Debug.Log("Mouse % = " + transformedNorm.ToString());
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    IEnumerator JumpPlayerSphere()
+    {
+        jumpControlsEnable = false;
+
+        float sphereInitPosition = playerSphere.transform.localPosition.y;
+        float sphereMaxPosition = sphereInitPosition + jumpHeight;
+
+        float timer = 0f;
+
+        while (timer < 1f)
+        {
+            yield return null;
+            timer += Time.deltaTime / 0.5f;
+
+            //Range check
+            timer = (timer > 1f) ? 1f : timer;
+
+            //Jump go up
+            playerSphere.transform.localPosition = new Vector3(0f, Mathf.Lerp(sphereInitPosition, sphereMaxPosition, timer), 0f);
+        }
+
+        while (timer > 0f)
+        {
+            yield return null;
+            timer -= Time.deltaTime / .4f;
+
+            //Range check
+            timer = (timer < 0f) ? 0f : timer;
+
+            //Jump get back down
+            playerSphere.transform.localPosition = new Vector3(0f, Mathf.Lerp(sphereInitPosition, sphereMaxPosition, timer), 0f);
+        }
+
+
+        jumpControlsEnable = true;
+    }
+
+
+    //Recieve collision information form the visual and apply proper behaviour
+    public void ProcessCollision(GameObject other)
     {
         ObstacleBehaviour obstacle = other.GetComponent<ObstacleBehaviour>();
         if (obstacle != null)
@@ -40,4 +105,6 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.ObstacleCollision();
         }
     }
+
+   
 }

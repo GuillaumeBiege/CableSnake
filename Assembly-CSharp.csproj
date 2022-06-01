@@ -64,6 +64,7 @@
     <Compile Include="Assets\Sources\Gameplay\SoundManager.cs" />
     <Compile Include="Assets\Sources\Gameplay\ObstacleBehaviour.cs" />
     <Compile Include="Assets\Sources\UI\DefeatMenu.cs" />
+    <Compile Include="Assets\Sources\Gameplay\PlayerSphereDetector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
