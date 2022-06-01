@@ -63,6 +63,7 @@
     <Compile Include="Assets\Sources\Gameplay\GameManager.cs" />
     <Compile Include="Assets\Sources\Gameplay\SoundManager.cs" />
     <Compile Include="Assets\Sources\Gameplay\ObstacleBehaviour.cs" />
+    <Compile Include="Assets\Sources\UI\DefeatMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
