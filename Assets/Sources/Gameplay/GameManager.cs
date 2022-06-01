@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region SingletonPattern
-    private static SoundManager instance = null;
+    private static GameManager instance = null;
 
-    public static SoundManager Instance
+    public static GameManager Instance
     {
         get
         {
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                return instance = new GameObject("@GameManager").AddComponent<SoundManager>();
+                return instance = new GameObject("@GameManager").AddComponent<GameManager>();
             }
         }
     }
@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
             ResetTimeScale();
         }
         /////////////////DEBUG
+    }
+
+    public void ObstacleCollision()
+    {
+        Debug.LogWarning("You Lose !");
     }
 
 

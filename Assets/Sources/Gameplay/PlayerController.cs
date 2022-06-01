@@ -34,11 +34,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogWarning("Collision !");
         ObstacleBehaviour obstacle = other.GetComponent<ObstacleBehaviour>();
         if (obstacle != null)
         {
-            Debug.LogWarning("You Lose !");
+            GameManager.Instance.ObstacleCollision();
         }
     }
 }
