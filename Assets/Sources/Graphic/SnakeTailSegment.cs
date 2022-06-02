@@ -7,10 +7,13 @@ public class SnakeTailSegment : MonoBehaviour
     //References
     public Transform previousSegment = default;
     [SerializeField] GameObject segmentSphere = default;
+    public PlayerController player = default;
 
 
     //Variables
     [SerializeField] float rotSpeed = 0.1f;
+
+
 
 
     void Update()
@@ -39,7 +42,7 @@ public class SnakeTailSegment : MonoBehaviour
             //Range check
             timer = (timer > 1f) ? 1f : timer;
 
-            float parabolaY = -4f * 3f * timer * timer + 4f * 3f * timer;
+            float parabolaY = -4f * player.jumpHeight * timer * timer + 4f * player.jumpHeight * timer;
 
             //Jump go up
             segmentSphere.transform.localPosition = new Vector3(0f, sphereInitPosition + parabolaY, 0f);

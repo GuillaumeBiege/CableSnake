@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     //Variables
     [Space(10), Header("Variables")]
     [SerializeField] float maxRotSpeed = 2f;
-    [SerializeField] float jumpHeight = 3f;
+    public float jumpHeight = 3f;
     [SerializeField] bool ControlsEnable = true;
 
     [SerializeField] float snakeTailSgmentGap = 0.3f;
@@ -69,9 +69,11 @@ public class PlayerController : MonoBehaviour
 
         //Tail jump
         SnakeTailSegment[] tails = snakeTails.ToArray();
-        for (int i = 0; i < tails.Length; i++)
+        int y = 0;
+        for (int i = tails.Length -1; i >= 0 ; i--)
         {
-            tails[i].StartJump(i + 1 * 0.01f);
+            tails[i].StartJump((y + 1) * 0.01f);
+            y++;
         }
 
         float sphereInitPosition = playerSphere.transform.localPosition.y;
@@ -135,6 +137,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject go = Instantiate<GameObject>(prefabSnakeTailSegment);
                 SnakeTailSegment tailSeg = go.GetComponent<SnakeTailSegment>();
+                tailSeg.player = this;
 
                 if (snakeTails.Count <= 0)
                 {
@@ -153,6 +156,7 @@ public class PlayerController : MonoBehaviour
 
                     tailSeg.previousSegment = lastSeg;
                 }
+
 
                 snakeTails.Push(tailSeg);
             }

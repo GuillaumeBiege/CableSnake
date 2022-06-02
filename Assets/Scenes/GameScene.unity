@@ -4583,13 +4583,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352370799}
-  m_LocalRotation: {x: 0.15848799, y: -0, z: -0, w: 0.9873609}
-  m_LocalPosition: {x: 0, y: 7.3, z: 0}
+  m_LocalRotation: {x: 0.22987992, y: 0, z: 0, w: 0.97321904}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1541673042}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 18.238, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.58, y: 0, z: 0}
 --- !u!4 &1354691539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4202910567864722687, guid: 5f495c6fbabb2e64385777af2683bf9e, type: 3}
@@ -5067,7 +5067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 1354691539}
   transSpeed: 0.1
-  rotSpeed: 17
+  rotSpeed: 25
 --- !u!4 &1541673042
 Transform:
   m_ObjectHideFlags: 0
@@ -5076,7 +5076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541673040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.41}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1352370802}
@@ -7818,6 +7818,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4202910567864722687, guid: 5f495c6fbabb2e64385777af2683bf9e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 4202910568803381753, guid: 5f495c6fbabb2e64385777af2683bf9e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7867,12 +7871,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202910568803381755, guid: 5f495c6fbabb2e64385777af2683bf9e, type: 3}
+      propertyPath: jumpHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202910568803381755, guid: 5f495c6fbabb2e64385777af2683bf9e, type: 3}
       propertyPath: playerSphere
       value: 
       objectReference: {fileID: 33497964}
     - target: {fileID: 4202910568803381755, guid: 5f495c6fbabb2e64385777af2683bf9e, type: 3}
       propertyPath: snakeTailVisualCap
-      value: 6
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4202910568803381755, guid: 5f495c6fbabb2e64385777af2683bf9e, type: 3}
       propertyPath: prefabSnakeTailSegment
