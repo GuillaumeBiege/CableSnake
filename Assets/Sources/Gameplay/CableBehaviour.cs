@@ -9,6 +9,7 @@ public class CableBehaviour : MonoBehaviour
     
     //Variables
     [SerializeField] float currentspeed = 1f;
+    [SerializeField] bool IsMoving = false;
 
     private void Awake()
     {
@@ -20,6 +21,12 @@ public class CableBehaviour : MonoBehaviour
 
     public void Init()
     {
-        rb.velocity = -transform.forward * currentspeed;
+        IsMoving = true;
+    }
+
+    private void LateUpdate()
+    {
+        if (IsMoving)
+            transform.position += -transform.forward * currentspeed * Time.deltaTime;
     }
 }
