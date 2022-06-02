@@ -11,7 +11,7 @@ public class CamAxisControl : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, playerTarget.position, transSpeed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, playerTarget.rotation, rotSpeed);
+        //transform.position = Vector3.Lerp(transform.position, playerTarget.position, transSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, playerTarget.rotation, rotSpeed * Time.deltaTime);
     }
 }

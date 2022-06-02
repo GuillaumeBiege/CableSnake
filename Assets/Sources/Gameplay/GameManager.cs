@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public delegate void VoidDelegate();
+public delegate void IntDelegate(int i);
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     {
+        START,
         INGAME,
         VICTORY,
         DEFEAT
@@ -36,18 +38,20 @@ public class GameManager : MonoBehaviour
     //References
 
     //Variables
-    [SerializeField] int currentFoodNumber = 1;
-    [SerializeField] GameState currentGameState = GameState.INGAME;
+    public int currentFoodNumber = 1;
+    [SerializeField] GameState currentGameState = GameState.START;
 
     //Event
     public event VoidDelegate ONGameMode;
     public event VoidDelegate ONVictoryMode;
     public event VoidDelegate ONDefeatMode;
 
+    public event IntDelegate ONIncreaseFood;
+    public event IntDelegate ONDecreaseFood;
 
     private void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     private void Update()
@@ -76,9 +80,9 @@ public class GameManager : MonoBehaviour
             currentFoodNumber = 0;
 
             ChangeGameState(GameState.DEFEAT);
-        }
 
-        
+            StartCoroutine(ProgressivlyStopTime(0.4f));
+        }
     }
 
     void ChangeGameState(GameState gs)
@@ -101,6 +105,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        ChangeGameState(GameState.INGAME);
+    }
 
 
     #region Collision management
@@ -108,12 +116,21 @@ public class GameManager : MonoBehaviour
     {
         Debug.LogWarning("You Lose !");
         currentFoodNumber -= 3;
+        ONDecreaseFood?.Invoke(3);
     }
 
     public void FoodCollision()
     {
         Debug.LogWarning("You got food !");
         currentFoodNumber++;
+        ONIncreaseFood?.Invoke(1);
+    }
+
+    public void FinishLineCollision()
+    {
+        Debug.LogWarning("You win !");
+        ChangeGameState(GameState.VICTORY);
+        StartCoroutine(ProgressivlyStopTime(1.5f));
     }
     #endregion
 
@@ -144,7 +161,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
     #endregion
-
 
     #region SceneManagement
 

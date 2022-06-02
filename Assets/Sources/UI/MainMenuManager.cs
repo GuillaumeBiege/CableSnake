@@ -12,14 +12,15 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Button playQuit = default;
 
 
-    private void Start()
+    private void OnEnable()
     {
         playButton.onClick.AddListener(GoToGameScene);
         playQuit.onClick.AddListener(CloseGame);
 
     }
 
-    private void OnDestroy()
+    
+    private void OnDisable()
     {
         playButton.onClick.RemoveListener(GoToGameScene);
         playQuit.onClick.RemoveListener(CloseGame);

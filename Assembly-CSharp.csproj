@@ -56,17 +56,22 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Sources\Gameplay\ObstacleBehaviour.cs" />
     <Compile Include="Assets\Sources\Gameplay\PlayerController.cs" />
+    <Compile Include="Assets\Sources\UI\DefeatMenu.cs" />
     <Compile Include="Assets\Sources\Gameplay\CamAxisControl.cs" />
+    <Compile Include="Assets\Sources\UI\MainMenuManager.cs" />
     <Compile Include="Assets\Sources\Debug\FPSText.cs" />
     <Compile Include="Assets\Sources\Gameplay\CableBehaviour.cs" />
-    <Compile Include="Assets\Sources\Gameplay\GameManager.cs" />
-    <Compile Include="Assets\Sources\Gameplay\SoundManager.cs" />
-    <Compile Include="Assets\Sources\Gameplay\ObstacleBehaviour.cs" />
-    <Compile Include="Assets\Sources\UI\DefeatMenu.cs" />
     <Compile Include="Assets\Sources\Gameplay\PlayerSphereDetector.cs" />
     <Compile Include="Assets\Sources\Gameplay\FoodBehaviour.cs" />
-    <Compile Include="Assets\Sources\UI\MainMenuManager.cs" />
+    <Compile Include="Assets\Sources\Gameplay\SoundManager.cs" />
+    <Compile Include="Assets\Sources\Gameplay\GameManager.cs" />
+    <Compile Include="Assets\Sources\Gameplay\FinishLineBehaviour.cs" />
+    <Compile Include="Assets\Sources\UI\VictoryMenu.cs" />
+    <Compile Include="Assets\Sources\UI\GameUI.cs" />
+    <Compile Include="Assets\Sources\UI\ConfirmationPopup.cs" />
+    <Compile Include="Assets\Sources\Graphic\SnakeTailSegment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

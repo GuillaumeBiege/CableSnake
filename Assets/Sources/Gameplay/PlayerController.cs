@@ -8,11 +8,17 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject playerSphere = default;
 
+    [SerializeField] GameObject prefabSnakeTailSegment = default;
+
     //Variables
     [Space(10), Header("Variables")]
     [SerializeField] float maxRotSpeed = 2f;
     [SerializeField] float jumpHeight = 3f;
     [SerializeField] bool ControlsEnable = true;
+
+    [SerializeField] float snakeTailSgmentGap = 0.3f;
+    [SerializeField] Stack<SnakeTailSegment> snakeTails = new Stack<SnakeTailSegment>();
+    [SerializeField] int snakeTailVisualCap = 8;
 
         //Double click
     float lastClickTime = 0f;
@@ -21,6 +27,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerSphere = GetComponentInChildren<PlayerSphereDetector>().gameObject;
+
+        GameManager.Instance.ONIncreaseFood += AddSnakeTailSegments;
+        GameManager.Instance.ONDecreaseFood += RemoveLastSegment;
     }
 
 
@@ -45,11 +54,11 @@ public class PlayerController : MonoBehaviour
 
             if (mousePosNorm < 0.5f)
             {
-                transform.Rotate(Vector3.forward, maxRotSpeed);
+                transform.Rotate(Vector3.forward, maxRotSpeed * Time.deltaTime);
             }
             else
             {
-                transform.Rotate(Vector3.forward, -maxRotSpeed);
+                transform.Rotate(Vector3.forward, -maxRotSpeed * Time.deltaTime);
             }
         }
     }
@@ -57,6 +66,13 @@ public class PlayerController : MonoBehaviour
     IEnumerator JumpPlayerSphere()
     {
         ControlsEnable = false;
+
+        //Tail jump
+        SnakeTailSegment[] tails = snakeTails.ToArray();
+        for (int i = 0; i < tails.Length; i++)
+        {
+            tails[i].StartJump(i + 1 * 0.01f);
+        }
 
         float sphereInitPosition = playerSphere.transform.localPosition.y;
 
@@ -89,6 +105,7 @@ public class PlayerController : MonoBehaviour
         if (obstacle != null)
         {
             GameManager.Instance.ObstacleCollision();
+            return;
         }
 
         //Process food
@@ -97,8 +114,59 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.FoodCollision();
             food.KillItself();
+            return;
+        }
+
+        //Victory
+        FinishLineBehaviour finishLine = other.GetComponent<FinishLineBehaviour>();
+        if (finishLine != null)
+        {
+            GameManager.Instance.FinishLineCollision();
+            return;
         }
     }
 
-   
+    #region Snake tail segment management
+    public void AddSnakeTailSegments(int nb)
+    {
+        if (snakeTails.Count < snakeTailVisualCap)
+        {
+            for (int i = 0; i < nb; i++)
+            {
+                GameObject go = Instantiate<GameObject>(prefabSnakeTailSegment);
+                SnakeTailSegment tailSeg = go.GetComponent<SnakeTailSegment>();
+
+                if (snakeTails.Count <= 0)
+                {
+                    go.transform.position = transform.position + new Vector3(0f, 0f, -snakeTailSgmentGap);
+                    go.transform.rotation = transform.rotation;
+
+
+                    tailSeg.previousSegment = transform;
+                }
+                else
+                {
+                    Transform lastSeg = snakeTails.Peek().transform;
+
+                    go.transform.position = lastSeg.position + new Vector3(0f, 0f, -snakeTailSgmentGap);
+                    go.transform.rotation = lastSeg.rotation;
+
+                    tailSeg.previousSegment = lastSeg;
+                }
+
+                snakeTails.Push(tailSeg);
+            }
+        }
+    }
+
+    public void RemoveLastSegment(int nb)
+    {
+        for (int i = 0; i < nb && snakeTails.Count > 0; i++)
+        {
+            Destroy(snakeTails.Pop().gameObject);
+        }
+    }
+    #endregion
+
+
 }

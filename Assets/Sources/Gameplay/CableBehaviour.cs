@@ -13,9 +13,12 @@ public class CableBehaviour : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        GameManager.Instance.ONGameMode += Init;
     }
 
-    private void Start()
+
+    public void Init()
     {
         rb.velocity = -transform.forward * currentspeed;
     }

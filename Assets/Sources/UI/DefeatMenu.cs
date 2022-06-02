@@ -11,17 +11,17 @@ public class DefeatMenu : MonoBehaviour
 
 
 
-    private void Start()
+    private void OnEnable()
     {
         RetryButton.onClick.AddListener(ReloadCurrentScene);
         QuitButton.onClick.AddListener(GoBacktoMainMenu);
     }
 
-    private void OnDestroy()
-    {
-        RetryButton.onClick.RemoveListener(ReloadCurrentScene);
-        QuitButton.onClick.RemoveListener(GoBacktoMainMenu);
-    }
+    //private void OnDisable()
+    //{
+    //    RetryButton.onClick.RemoveListener(ReloadCurrentScene);
+    //    QuitButton.onClick.RemoveListener(GoBacktoMainMenu);
+    //}
 
     public void ReloadCurrentScene()
     {
