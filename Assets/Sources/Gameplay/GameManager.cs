@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     //Variables
     public int currentFoodNumber = 1;
-    [SerializeField] GameState currentGameState = GameState.START;
+    public GameState currentGameState = GameState.START;
 
     //Event
     public event VoidDelegate ONGameMode;

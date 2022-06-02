@@ -72,6 +72,7 @@
     <Compile Include="Assets\Sources\UI\GameUI.cs" />
     <Compile Include="Assets\Sources\UI\ConfirmationPopup.cs" />
     <Compile Include="Assets\Sources\Graphic\SnakeTailSegment.cs" />
+    <Compile Include="Assets\Sources\Gameplay\OrbitingObstacleBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
