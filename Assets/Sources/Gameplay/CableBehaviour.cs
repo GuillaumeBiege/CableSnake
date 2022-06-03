@@ -40,32 +40,28 @@ public class CableBehaviour : MonoBehaviour
         IsMoving = true;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (IsMoving)
             transform.position += -transform.forward * currentspeed * Time.deltaTime;
+
+        GenerateSegmentOnTimer();
     }
 
     #region Level generation
     void Init()
     {
-        //For the player breathing room at the beggining of a level
-        //AddEmptySegment();
-
-
+        //Initiate a few segment at the biggining of the game
         for (int i = 0; i < 6 && i < obstacleList.Length; i++)
         {
             AddFullSegment();
-
-
-            
         }
     }
 
     void AddEmptySegment()
     {
         GameObject cable = Instantiate<GameObject>(cableSegment, transform);
-        cable.transform.position = new Vector3(0f, 0f, progressionIndex * progressionStep);
+        cable.transform.localPosition = new Vector3(0f, 0f, (float)progressionIndex * progressionStep);
         progressionIndex++;
     }
 
@@ -73,15 +69,17 @@ public class CableBehaviour : MonoBehaviour
     {
         if (progressionIndex < obstacleList.Length)
         {
-            GameObject obstacle = Instantiate<GameObject>(obstacleList[progressionIndex], transform);
-            obstacle.transform.position = new Vector3(0f, 0f, progressionIndex * progressionStep);
-
+            if (obstacleList[progressionIndex] != null)
+            {
+                GameObject obstacle = Instantiate<GameObject>(obstacleList[progressionIndex], transform);
+                obstacle.transform.localPosition = new Vector3(0f, 0f, (float)progressionIndex * progressionStep);
+            }
+    
             AddEmptySegment();
         }
     }
 
-
-    private void Update()
+    void GenerateSegmentOnTimer()
     {
         if (GameManager.Instance.currentGameState == GameManager.GameState.INGAME)
         {
@@ -92,13 +90,14 @@ public class CableBehaviour : MonoBehaviour
             if (progressionTimer >= segmentTime)
             {
                 progressionTimer -= segmentTime;
-                
-                
+
+
                 AddFullSegment();
             }
         }
-        
     }
+
+    
     #endregion
 
 

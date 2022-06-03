@@ -2053,21 +2053,26 @@ MonoBehaviour:
   IsMoving: 0
   cableSegment: {fileID: 834454388860561063, guid: 3f657fc9fcba7b9458581a7e251c0c74, type: 3}
   obstacleList:
-  - {fileID: 8300481682030224954, guid: f6ad7bc6165403e4ba1f61d78bdb24d2, type: 3}
+  - {fileID: 5392998319732416655, guid: b8db301658b4d9d4982b9abcec96a0b7, type: 3}
+  - {fileID: 2520081643482538063, guid: d6f948e1728cc1e4f92bc99a3c4a634c, type: 3}
+  - {fileID: 0}
+  - {fileID: 7552522777627672278, guid: a52593af22c74c84ba30056f49887c61, type: 3}
+  - {fileID: 2241694457825589998, guid: db23c76a7bf95f242a6da7355ca11417, type: 3}
+  - {fileID: 4346124164373541590, guid: d1636cc3dc383274db1285993dbc2d21, type: 3}
+  - {fileID: 0}
+  - {fileID: 4346124164373541590, guid: d1636cc3dc383274db1285993dbc2d21, type: 3}
   - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 8300481682030224954, guid: f6ad7bc6165403e4ba1f61d78bdb24d2, type: 3}
+  - {fileID: 2241694457825589998, guid: db23c76a7bf95f242a6da7355ca11417, type: 3}
   - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
-  - {fileID: 7693361618100189614, guid: 8e6fa32468e9369428aeff54aacd1b9a, type: 3}
+  - {fileID: 7858329409509236153, guid: 2d1b04bde21aa664e9f9c8082f221271, type: 3}
+  - {fileID: 5392998319732416655, guid: b8db301658b4d9d4982b9abcec96a0b7, type: 3}
+  - {fileID: 2520081643482538063, guid: d6f948e1728cc1e4f92bc99a3c4a634c, type: 3}
+  - {fileID: 5392998319732416655, guid: b8db301658b4d9d4982b9abcec96a0b7, type: 3}
+  - {fileID: 0}
+  - {fileID: 4346124164373541590, guid: d1636cc3dc383274db1285993dbc2d21, type: 3}
+  - {fileID: 0}
+  - {fileID: 2241694457825589998, guid: db23c76a7bf95f242a6da7355ca11417, type: 3}
+  - {fileID: 34970429703336685, guid: 1d5817fb5d7c06f40ab967e2586fbb49, type: 3}
   progressionIndex: 0
   progressionStep: 10
   progressionTimer: 0

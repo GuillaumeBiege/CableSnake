@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
 
             ChangeGameState(GameState.DEFEAT);
 
-            StartCoroutine(ProgressivlyStopTime(0.4f));
+            StartCoroutine(ProgressivlyStopTime(0.2f));
         }
     }
 
