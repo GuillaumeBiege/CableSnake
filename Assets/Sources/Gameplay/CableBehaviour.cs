@@ -83,11 +83,6 @@ public class CableBehaviour : MonoBehaviour
         }
     }
 
-    void AddEmptySegment()
-    {
-        
-    }
-
     void AddFullSegment()
     {
         if (progressionIndex < obstacleList.Length)
@@ -110,7 +105,6 @@ public class CableBehaviour : MonoBehaviour
 
             instancedObtacles.Add(new ObsoleteSegment(obstacle, cable, progressionIndex));
 
-            AddEmptySegment();
         }
     }
 
