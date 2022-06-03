@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4029911674931869376}
   m_LocalRotation: {x: -0, y: 0, z: -0.18429449, w: -0.9828711}
-  m_LocalPosition: {x: 0, y: 0, z: 7.32}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4029911675086382762}
@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4029911675086382763}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.22, z: 7.32}
+  m_LocalPosition: {x: 0, y: 5.22, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 4029911674931869379}
@@ -140,3 +140,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathFX: {fileID: 4468037463636004796, guid: f0852e6471f0bd443bcce7b9b2853605, type: 3}
+  cable: {fileID: 0}
