@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float snakeTailSgmentGap = 0.3f;
     [SerializeField] Stack<SnakeTailSegment> snakeTails = new Stack<SnakeTailSegment>();
     [SerializeField] int snakeTailVisualCap = 8;
+    [SerializeField] float snakeTailJumpDelay = 0.05f;
 
         //Double click
     float lastClickTime = 0f;
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour
         int y = 0;
         for (int i = tails.Length -1; i >= 0 ; i--)
         {
-            tails[i].StartJump((y + 1) * 0.01f);
+            tails[i].StartJump((y + 1) * snakeTailJumpDelay);
             y++;
         }
 
