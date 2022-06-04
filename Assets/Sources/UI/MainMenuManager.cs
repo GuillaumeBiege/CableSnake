@@ -8,24 +8,26 @@ public class MainMenuManager : MonoBehaviour
 {
     //References
     [Header("References")]
-    [SerializeField] Button playButton = default;
-    [SerializeField] Button playQuit = default;
+    [SerializeField] GameObject mainPanel = default;
+
+    [Header("EntranceMenu")]
+    [SerializeField] Button entranceConfirmation = default;
+
+    [Header("MainMenu")]
+    [SerializeField] GameObject MainMenu = default;
+
+    [Header("LevelListMenu")]
+    [SerializeField] GameObject LevelListMenu = default;
+
+    Animator animator = default;
 
 
-    private void OnEnable()
+
+
+    private void Awake()
     {
-        playButton.onClick.AddListener(GoToGameScene);
-        playQuit.onClick.AddListener(CloseGame);
-
+        animator = GetComponent<Animator>();
     }
-
-    
-    private void OnDisable()
-    {
-        playButton.onClick.RemoveListener(GoToGameScene);
-        playQuit.onClick.RemoveListener(CloseGame);
-    }
-
 
 
     public void GoToGameScene()
@@ -36,5 +38,23 @@ public class MainMenuManager : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
+    }
+
+
+
+
+    public void SlideFromEntranceToMain()
+    {
+        animator.SetTrigger("EntranceToMain");
+    }
+
+    public void SlideFromMainToLevel()
+    {
+        animator.SetTrigger("MainToLevel");
+    }
+
+    public void SlideFromLevelToMain()
+    {
+        animator.SetTrigger("LevelToMain");
     }
 }
