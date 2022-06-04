@@ -106,7 +106,10 @@ public class PlayerController : MonoBehaviour
         ObstacleBehaviour obstacle = other.GetComponent<ObstacleBehaviour>();
         if (obstacle != null)
         {
-            GameManager.Instance.ObstacleCollision();
+            if (GameManager.Instance.ObstacleCollision())   //If the player survive the collision it is the obstacle that is destroyed
+                obstacle.Kill();
+            
+
             return;
         }
 

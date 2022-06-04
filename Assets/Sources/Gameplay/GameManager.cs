@@ -112,11 +112,14 @@ public class GameManager : MonoBehaviour
 
 
     #region Collision management
-    public void ObstacleCollision()
+    public bool ObstacleCollision()
     {
+        bool check = (currentFoodNumber > 3) ? true : false;
         Debug.LogWarning("You Lose !");
         currentFoodNumber -= 3;
         ONDecreaseFood?.Invoke(3);
+
+        return check;
     }
 
     public void FoodCollision()

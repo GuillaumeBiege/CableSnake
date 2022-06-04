@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class ObstacleBehaviour : MonoBehaviour
 {
-   
+   public void Kill()
+    {
+        Destroy(gameObject);
+    }
 }
