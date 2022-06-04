@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousSegment: {fileID: 0}
   segmentSphere: {fileID: 4496452524714159583}
+  player: {fileID: 0}
   rotSpeed: 17
 --- !u!1 &4496452524714159583
 GameObject:
@@ -74,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 4496452524714159583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5.15, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 4496452524323268709}
   m_RootOrder: 0
@@ -106,7 +107,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 916fed97b25f2db459bef5a45d0cdc4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

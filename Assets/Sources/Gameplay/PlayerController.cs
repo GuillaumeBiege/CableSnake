@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && ControlsEnable)
         {
             float mousePosNormY = Input.mousePosition.y / Screen.height;
-            if (mousePosNormY <= 0.15f)
+            if (mousePosNormY <= 0.2f)
             {
                 StartCoroutine(JumpPlayerSphere());
                 return;

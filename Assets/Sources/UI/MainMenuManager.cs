@@ -29,18 +29,15 @@ public class MainMenuManager : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-
-    public void GoToGameScene()
-    {
-        SceneManager.LoadScene(1);
-    }
-
     public void CloseGame()
     {
         Application.Quit();
     }
 
-
+    public void AskToChangeScene(int _id)
+    {
+        SceneManager.LoadScene(_id);
+    }
 
 
     public void SlideFromEntranceToMain()

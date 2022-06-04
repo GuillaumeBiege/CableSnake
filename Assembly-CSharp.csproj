@@ -69,12 +69,15 @@
     <Compile Include="Assets\Sources\Gameplay\PlayerSphereDetector.cs" />
     <Compile Include="Assets\Sources\Graphic\InstantVFXBehaviour.cs" />
     <Compile Include="Assets\Sources\Gameplay\FoodBehaviour.cs" />
+    <Compile Include="Assets\Sources\Gameplay\SpinScript.cs" />
     <Compile Include="Assets\Sources\Gameplay\FinishLineBehaviour.cs" />
     <Compile Include="Assets\Sources\Graphic\SnakeTailSegment.cs" />
     <Compile Include="Assets\Sources\UI\ConfirmationPopup.cs" />
     <Compile Include="Assets\Sources\Gameplay\SoundManager.cs" />
     <Compile Include="Assets\Sources\Gameplay\GameManager.cs" />
-    <Compile Include="Assets\Sources\Gameplay\SpinScript.cs" />
+    <Compile Include="Assets\Sources\LevelAndProgressionManager.cs" />
+    <Compile Include="Assets\Sources\UI\LevelMenu.cs" />
+    <Compile Include="Assets\Sources\UI\LevelButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
