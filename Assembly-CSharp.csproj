@@ -63,9 +63,9 @@
     <Compile Include="Assets\Sources\Gameplay\CamAxisControl.cs" />
     <Compile Include="Assets\Sources\UI\MainMenuManager.cs" />
     <Compile Include="Assets\Sources\UI\GameUI.cs" />
+    <Compile Include="Assets\Sources\UI\FoodCounter.cs" />
     <Compile Include="Assets\Sources\Debug\FPSText.cs" />
     <Compile Include="Assets\Sources\Gameplay\CableBehaviour.cs" />
-    <Compile Include="Assets\Sources\Gameplay\OrbitingObstacleBehaviour.cs" />
     <Compile Include="Assets\Sources\Gameplay\PlayerSphereDetector.cs" />
     <Compile Include="Assets\Sources\Graphic\InstantVFXBehaviour.cs" />
     <Compile Include="Assets\Sources\Gameplay\FoodBehaviour.cs" />
@@ -74,7 +74,7 @@
     <Compile Include="Assets\Sources\UI\ConfirmationPopup.cs" />
     <Compile Include="Assets\Sources\Gameplay\SoundManager.cs" />
     <Compile Include="Assets\Sources\Gameplay\GameManager.cs" />
-    <Compile Include="Assets\Sources\UI\FoodCounter.cs" />
+    <Compile Include="Assets\Sources\Gameplay\SpinScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

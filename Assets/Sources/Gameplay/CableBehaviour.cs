@@ -30,6 +30,8 @@ public class CableBehaviour : MonoBehaviour
     Rigidbody rb = default;
     
     //Variables
+    [SerializeField] float initialspeed = 5f;
+    [SerializeField] float maxspeed = 15f;
     [SerializeField] float currentspeed = 1f;
     [SerializeField] bool IsMoving = false;
 
@@ -61,6 +63,7 @@ public class CableBehaviour : MonoBehaviour
     public void LaunchProgression()
     {
         IsMoving = true;
+        currentspeed = initialspeed;
     }
 
     private void Update()
@@ -74,8 +77,7 @@ public class CableBehaviour : MonoBehaviour
     #region Level generation
     void Init()
     {
-        //instancedObtacles = new List<ObsoleteSegment>();
-
+        
         //Initiate a few segment at the biggining of the game
         for (int i = 0; i < initialIndex && i < obstacleList.Length; i++)
         {
@@ -143,6 +145,9 @@ public class CableBehaviour : MonoBehaviour
                 AddFullSegment();
 
                 RemovePastSegment();
+
+                //Increase the progression speed according
+                IncrementSpeed();
             }
         }
     }
@@ -150,5 +155,15 @@ public class CableBehaviour : MonoBehaviour
     
     #endregion
 
+    void IncrementSpeed()
+    {
+        int currentIndex = progressionIndex - initialIndex;
+        int maxIndex = obstacleList.Length - initialIndex;                     //Total length of the level
 
+        if (currentIndex >= 0)
+        {
+            Debug.Log("Speed !");
+            currentspeed = Mathf.Lerp(initialspeed, maxspeed, ((float)currentIndex / (float)maxIndex));
+        }
+    }
 }

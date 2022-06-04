@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4948845388985852801}
+  - component: {fileID: 3807699952584954978}
   m_Layer: 0
   m_Name: OrbitingObtacle
   m_TagString: Obstacle
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3807699952584954978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948845388985852800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcf65c2c1c26ca4b9699b7ecf545ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 20
+  IsClockwise: 1
 --- !u!1 &4948845389245160626
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +58,7 @@ GameObject:
   - component: {fileID: 4948845389245160631}
   - component: {fileID: 4948845389245160630}
   - component: {fileID: 4948845389245160625}
-  - component: {fileID: 4948845389245160624}
+  - component: {fileID: 7061217565728748464}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -127,7 +142,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4948845389245160624
+--- !u!114 &7061217565728748464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,9 +151,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4948845389245160626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e05b77cbe7c65ff4fa1e3b5963a92d9c, type: 3}
+  m_Script: {fileID: 11500000, guid: da6ef2c0668b34542b30623f86e37a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentPivot: {fileID: 4948845388985852800}
-  rotSpeed: 100
-  IsClockwise: 1
