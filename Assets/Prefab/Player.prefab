@@ -202,10 +202,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSphere: {fileID: 0}
-  prefabSnakeTailSegment: {fileID: 0}
+  prefabSnakeTailSegment: {fileID: 4496452524323268710, guid: 9e63b2d8989a582469b2b689f31f9ec1, type: 3}
+  prefabFX_Victory: {fileID: 4740028605179588142, guid: 6e62d42bfed03744f806c59e2ff39f87, type: 3}
   maxRotSpeed: 100
   jumpHeight: 3
   ControlsEnable: 1
   snakeTailSgmentGap: 0.3
   snakeTailVisualCap: 8
+  snakeTailJumpDelay: 0.05
   doubleClickTolerance: 0.5

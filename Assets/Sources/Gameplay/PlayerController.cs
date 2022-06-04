@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
     //References
     [Header("References")]
     [SerializeField] GameObject playerSphere = default;
-
     [SerializeField] GameObject prefabSnakeTailSegment = default;
+    [SerializeField] GameObject prefabFX_Victory = default;
 
     //Variables
     [Space(10), Header("Variables")]
@@ -62,6 +62,9 @@ public class PlayerController : MonoBehaviour
                 transform.Rotate(Vector3.forward, -maxRotSpeed * Time.deltaTime);
             }
         }
+
+        
+
     }
 
     IEnumerator JumpPlayerSphere()
@@ -128,6 +131,10 @@ public class PlayerController : MonoBehaviour
         if (finishLine != null)
         {
             GameManager.Instance.FinishLineCollision();
+
+            GameObject go = Instantiate<GameObject>(prefabFX_Victory, transform);
+            go.transform.position = playerSphere.transform.position;
+            go.transform.rotation = playerSphere.transform.rotation;
             return;
         }
     }
