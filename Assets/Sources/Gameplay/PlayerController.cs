@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.ONIncreaseFood += AddSnakeTailSegments;
         GameManager.Instance.ONDecreaseFood += RemoveLastSegment;
         GameManager.Instance.ONGameMode += EnableControls;
+        GameManager.Instance.ONDefeatMode += DisableControls;
+        GameManager.Instance.ONVictoryMode += DisableControls;
     }
 
 
@@ -143,6 +145,11 @@ public class PlayerController : MonoBehaviour
     public void EnableControls()
     {
         ControlsEnable = true;
+    }
+
+    public void DisableControls()
+    {
+        ControlsEnable = false;
     }
 
     #region Snake tail segment management

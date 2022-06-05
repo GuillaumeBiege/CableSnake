@@ -29,7 +29,7 @@ public class VictoryMenu : MonoBehaviour
 
     public void GoToNextLevel()
     {
-        //TODO : Connect to scene management system
+        GameManager.Instance.GoToNextLevel();
     }
 
     public void GoBacktoMainMenu()

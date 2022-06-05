@@ -135,6 +135,20 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void GoToNextLevel()
+    {
+        int nextLevelID = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextLevelID <= LevelAndProgressionManager.Instance.totalNbLevels)
+        {
+            SceneManager.LoadScene(nextLevelID);
+        }
+        else
+        {
+            GoToMainMenu();
+        }
+        
+    }
+
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(0);
