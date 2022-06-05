@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [Space(10), Header("Variables")]
     [SerializeField] float maxRotSpeed = 2f;
     public float jumpHeight = 3f;
-    [SerializeField] bool ControlsEnable = true;
+    [SerializeField] bool ControlsEnable = false;
 
     [SerializeField] float snakeTailSgmentGap = 0.3f;
     [SerializeField] Stack<SnakeTailSegment> snakeTails = new Stack<SnakeTailSegment>();
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
         GameManager.Instance.ONIncreaseFood += AddSnakeTailSegments;
         GameManager.Instance.ONDecreaseFood += RemoveLastSegment;
+        GameManager.Instance.ONGameMode += EnableControls;
     }
 
 
@@ -137,6 +138,11 @@ public class PlayerController : MonoBehaviour
             go.transform.rotation = playerSphere.transform.rotation;
             return;
         }
+    }
+
+    public void EnableControls()
+    {
+        ControlsEnable = true;
     }
 
     #region Snake tail segment management
