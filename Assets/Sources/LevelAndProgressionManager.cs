@@ -25,5 +25,5 @@ public class LevelAndProgressionManager : MonoBehaviour
     #endregion
 
 
-    public int totalNbLevels = 3;
+    public int totalNbLevels = 5;
 }
