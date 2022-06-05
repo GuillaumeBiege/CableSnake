@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,12 +47,16 @@ public class CableBehaviour : MonoBehaviour
 
     [SerializeField] float progressionTimer = 0f;
 
+    [SerializeField] float slowDownTime = 2.5f;
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
 
         GameManager.Instance.ONGameMode += LaunchProgression;
+        GameManager.Instance.ONVictoryMode += StopCableProgessif;
+        GameManager.Instance.ONDefeatMode += StopCable;
     }
 
     private void Start()
@@ -165,5 +170,34 @@ public class CableBehaviour : MonoBehaviour
             Debug.Log("Speed !");
             currentspeed = Mathf.Lerp(initialspeed, maxspeed, ((float)currentIndex / (float)maxIndex));
         }
+    }
+
+    public void StopCableProgessif()
+    {
+        StartCoroutine(SlowDownCable());
+    }
+
+    public void StopCable()
+    {
+        currentspeed = 0f;
+        IsMoving = false;
+    }
+
+    IEnumerator SlowDownCable()
+    {
+        float timer = 1f;
+
+        while (timer > 0f)
+        {
+            yield return null;
+
+            timer -= Time.deltaTime / slowDownTime;
+
+            timer = (timer < 0f) ? 0f : timer;      //Bondaries
+
+            currentspeed = Mathf.Lerp(0f, maxspeed, timer);
+        }
+
+        IsMoving = false;
     }
 }

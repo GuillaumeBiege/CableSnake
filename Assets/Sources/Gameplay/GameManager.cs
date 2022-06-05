@@ -56,19 +56,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        /////////////////DEBUG
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            StartCoroutine(ProgressivlyStopTime(2f));
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            ResetTimeScale();
-        }
-        /////////////////DEBUG
-
-
         CheckVictoryDefeatCondition();
     }
 
@@ -81,7 +68,6 @@ public class GameManager : MonoBehaviour
 
             ChangeGameState(GameState.DEFEAT);
 
-            StartCoroutine(ProgressivlyStopTime(0.2f));
         }
     }
 
@@ -133,37 +119,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.LogWarning("You win !");
         ChangeGameState(GameState.VICTORY);
-        StartCoroutine(ProgressivlyStopTime(1.5f));
     }
     #endregion
 
-    #region Time scale effects
-
-    IEnumerator ProgressivlyStopTime(float _slowTime)
-    {
-        float timer = 1f;
-
-        while (timer > 0f)
-        {
-            yield return null;
-
-            timer -= Time.unscaledDeltaTime / _slowTime;
-
-            Debug.Log("timer = " + timer.ToString());
-
-            //To avoid any bug within Unity's manager
-            timer = (timer < 0f) ? 0f : timer;
-
-            Time.timeScale = timer;
-
-        }
-    }
-
+    
     public void ResetTimeScale()
     {
         Time.timeScale = 1f;
     }
-    #endregion
 
     #region SceneManagement
 
