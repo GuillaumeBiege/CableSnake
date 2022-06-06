@@ -1061,6 +1061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixerGroup: {fileID: 24300002, guid: 0d240c42567ddf648b0483c5ac3ae16f, type: 2}
   NbSource: 5
+  bank: {fileID: 0}
 --- !u!4 &903777780
 Transform:
   m_ObjectHideFlags: 0
@@ -1141,6 +1142,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1700609990}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: SlideFromMainToLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 903777779}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayInterfaceSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2034,7 +2047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPanel: {fileID: 872430098}
-  entranceConfirmation: {fileID: 0}
   MainMenu: {fileID: 777526795}
   LevelListMenu: {fileID: 0}
 --- !u!114 &1700609991

@@ -115,7 +115,6 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.Instance.ObstacleCollision())   //If the player survive the collision it is the obstacle that is destroyed
                 obstacle.Kill();
-            
 
             return;
         }

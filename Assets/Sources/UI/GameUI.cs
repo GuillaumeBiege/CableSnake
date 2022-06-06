@@ -14,6 +14,9 @@ public class GameUI : MonoBehaviour
         defeatMenu.gameObject.SetActive(false);
         victoryMenu.gameObject.SetActive(false);
 
+        SoundManager.Instance.StopMusic();
+        SoundManager.Instance.PlayMusicGame();
+
     }
 
     private void OnEnable()

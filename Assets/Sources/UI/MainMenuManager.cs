@@ -10,8 +10,6 @@ public class MainMenuManager : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject mainPanel = default;
 
-    [Header("EntranceMenu")]
-    [SerializeField] Button entranceConfirmation = default;
 
     [Header("MainMenu")]
     [SerializeField] GameObject MainMenu = default;
@@ -27,6 +25,11 @@ public class MainMenuManager : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayMusicMenu();
     }
 
     public void CloseGame()

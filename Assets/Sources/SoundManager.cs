@@ -25,23 +25,17 @@ public class SoundManager : MonoBehaviour
     #endregion
 
     //References
-    [SerializeField] AudioMixerGroup audioMixerGroup = null;
+    [SerializeField] AudioMixerGroup MusicGroup = null;
+    [SerializeField] AudioMixerGroup SFXGroup = null;
     AudioSource[] audioSources;
 
+    AudioSource musicSource = default;
 
     //Variables
     [SerializeField] int NbSource = 10;
-    
+   
 
-
-    [Header("Audio clip")]
-    [SerializeField] AudioClip MusicGameClip = default;
-    [SerializeField] AudioClip MusicMenuClip = default;
-    [SerializeField] AudioClip FoodClip = default;
-    [SerializeField] AudioClip CollisionClip = default;
-    [SerializeField] AudioClip VictoryClip = default;
-    [SerializeField] AudioClip DefeatClip = default;
-    [SerializeField] AudioClip InterfaceClip = default;
+    [SerializeField] SoundBank bank = default;
 
 
     private void Awake()
@@ -55,8 +49,15 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < NbSource; i++)
         {
             audioSources[i] = gameObject.AddComponent<AudioSource>();
-            audioSources[i].outputAudioMixerGroup = audioMixerGroup;
+            audioSources[i].outputAudioMixerGroup = SFXGroup;
         }
+
+        bank = Resources.Load<SoundBank>("SoundBank");
+
+        musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.outputAudioMixerGroup = MusicGroup;
+        musicSource.volume = 0.5f;
+
     }
 
     public void PlaySound(AudioClip _clip, bool _isOnLoop = false)
@@ -71,6 +72,18 @@ public class SoundManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void PlayMusic(AudioClip _clip)
+    {
+        musicSource.clip = _clip;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        musicSource.Stop();
     }
 
     public void StopSound(AudioClip _clip)
@@ -96,49 +109,42 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    //Music
 
     public void PlayMusicGame()
     {
-        PlaySound(MusicGameClip, true);
-    }
-
-    public void StopMusicGame()
-    {
-        StopSound(MusicGameClip);
+        PlayMusic(bank.MusicGameClip);
     }
 
     public void PlayMusicMenu()
     {
-        PlaySound(MusicMenuClip, true);
+        PlayMusic(bank.MusicMenuClip);
     }
 
-    public void StopMusicMenu()
-    {
-        StopSound(MusicMenuClip);
-    }
+    //SFX
 
     public void PlayFoodSound()
     {
-        PlaySound(FoodClip);
+        PlaySound(bank.FoodClip);
     }
 
     public void PlayCollisionSound()
     {
-        PlaySound(CollisionClip);
+        PlaySound(bank.CollisionClip);
     }
 
     public void PlayVictory()
     {
-        PlaySound(VictoryClip);
+        PlaySound(bank.VictoryClip);
     }
 
     public void PlayDefeat()
     {
-        PlaySound(DefeatClip);
+        PlaySound(bank.DefeatClip);
     }
 
     public void PlayInterfaceSound()
     {
-        PlaySound(InterfaceClip);
+        PlaySound(bank.InterfaceClip);
     }
 }

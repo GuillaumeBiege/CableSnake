@@ -78,6 +78,7 @@
     <Compile Include="Assets\Sources\UI\ConfirmationPopup.cs" />
     <Compile Include="Assets\Sources\SoundManager.cs" />
     <Compile Include="Assets\Sources\Gameplay\GameManager.cs" />
+    <Compile Include="Assets\Sources\SoundBank.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c023f6210fef4f546826997610acc672, type: 3}
+  m_Name: SoundBank
+  m_EditorClassIdentifier: 
+  MusicGameClip: {fileID: 8300000, guid: ef271bf76a6b63e46bed6dd0f696db17, type: 3}
+  MusicMenuClip: {fileID: 8300000, guid: c541d18a06c2303429029a1add14245b, type: 3}
+  FoodClip: {fileID: 8300000, guid: 59fe5e3577ccfc34a88e5b3692546093, type: 3}
+  CollisionClip: {fileID: 8300000, guid: 1464b224020d2ff4a92537a5217ab34a, type: 3}
+  VictoryClip: {fileID: 8300000, guid: 0755bc3214192cc40b54162c2bc116a6, type: 3}
+  DefeatClip: {fileID: 8300000, guid: c31970ce3baa8ca4cb03b9480b1232f9, type: 3}
+  InterfaceClip: {fileID: 8300000, guid: 6f639f7fc7c0a4c488c5dcaccc2b872d, type: 3}

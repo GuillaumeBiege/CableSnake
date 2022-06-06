@@ -5,6 +5,13 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - audioMixerGroup: {fileID: 24300002, guid: 0d240c42567ddf648b0483c5ac3ae16f, type: 2}
+  - MusicGameClip: {fileID: 8300000, guid: ef271bf76a6b63e46bed6dd0f696db17, type: 3}
+  - MusicMenuClip: {fileID: 8300000, guid: c541d18a06c2303429029a1add14245b, type: 3}
+  - FoodClip: {fileID: 8300000, guid: 59fe5e3577ccfc34a88e5b3692546093, type: 3}
+  - CollisionClip: {fileID: 8300000, guid: 1464b224020d2ff4a92537a5217ab34a, type: 3}
+  - VictoryClip: {fileID: 8300000, guid: 0755bc3214192cc40b54162c2bc116a6, type: 3}
+  - DefeatClip: {instanceID: 0}
+  - InterfaceClip: {fileID: 8300000, guid: 6f639f7fc7c0a4c488c5dcaccc2b872d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

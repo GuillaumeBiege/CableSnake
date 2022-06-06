@@ -62,12 +62,14 @@ public class GameManager : MonoBehaviour
     void CheckVictoryDefeatCondition()
     {
         //Defeat conditions
-        if (currentFoodNumber <= 0)
+        if (currentFoodNumber <= 0 && currentGameState == GameState.INGAME)
         {
             currentFoodNumber = 0;
 
             ChangeGameState(GameState.DEFEAT);
 
+            SoundManager.Instance.StopMusic();
+            SoundManager.Instance.PlayDefeat();
         }
     }
 
@@ -105,6 +107,8 @@ public class GameManager : MonoBehaviour
         currentFoodNumber -= 3;
         ONDecreaseFood?.Invoke(3);
 
+        SoundManager.Instance.PlayCollisionSound();
+
         return check;
     }
 
@@ -113,12 +117,17 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("You got food !");
         currentFoodNumber++;
         ONIncreaseFood?.Invoke(1);
+
+        SoundManager.Instance.PlayFoodSound();
     }
 
     public void FinishLineCollision()
     {
         Debug.LogWarning("You win !");
         ChangeGameState(GameState.VICTORY);
+
+        SoundManager.Instance.StopMusic();
+        SoundManager.Instance.PlayVictory();
     }
     #endregion
 
