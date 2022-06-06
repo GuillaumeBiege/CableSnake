@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2466943641544887704}
   - component: {fileID: 2466943641544887705}
   - component: {fileID: 5506206206364256676}
+  - component: {fileID: -9038000135412541933}
   m_Layer: 5
   m_Name: PrefabButtonLevel
   m_TagString: Untagged
@@ -217,3 +218,16 @@ MonoBehaviour:
   text: {fileID: 0}
   mainMenu: {fileID: 0}
   LevelID: 1
+--- !u!114 &-9038000135412541933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466943641544887703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40874f62b2177f4aa67f863227892d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}

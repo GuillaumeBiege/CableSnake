@@ -146,6 +146,8 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextLevel()
     {
+        SoundManager.Instance.StopAllSound();
+
         int nextLevelID = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextLevelID <= LevelAndProgressionManager.Instance.totalNbLevels)
         {
@@ -160,6 +162,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        SoundManager.Instance.StopAllSound();
         SceneManager.LoadScene(0);
     }
     #endregion

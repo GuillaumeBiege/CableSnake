@@ -79,6 +79,7 @@
     <Compile Include="Assets\Sources\SoundManager.cs" />
     <Compile Include="Assets\Sources\Gameplay\GameManager.cs" />
     <Compile Include="Assets\Sources\SoundBank.cs" />
+    <Compile Include="Assets\Sources\ButtonSound.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
