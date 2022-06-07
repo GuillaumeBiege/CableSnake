@@ -31,11 +31,14 @@ public class SoundManager : MonoBehaviour
 
     AudioSource musicSource = default;
 
+    [SerializeField] SoundBank bank = default;
+
     //Variables
     [SerializeField] int NbSource = 10;
-   
 
-    [SerializeField] SoundBank bank = default;
+    public bool isSoundON = true;
+    [SerializeField] float mainVolume = 1f;
+    
 
 
     private void Awake()
@@ -69,6 +72,7 @@ public class SoundManager : MonoBehaviour
                 audioSources[i].clip = _clip;
                 audioSources[i].loop = _isOnLoop;
                 audioSources[i].Play();
+                audioSources[i].volume = mainVolume;
                 break;
             }
         }
@@ -79,6 +83,7 @@ public class SoundManager : MonoBehaviour
         musicSource.clip = _clip;
         musicSource.loop = true;
         musicSource.Play();
+        musicSource.volume = mainVolume;
     }
 
     public void StopMusic()
@@ -146,5 +151,32 @@ public class SoundManager : MonoBehaviour
     public void PlayInterfaceSound()
     {
         PlaySound(bank.InterfaceClip);
+    }
+
+    //Other
+    public void PutSoundON()
+    {
+        isSoundON = true;
+        mainVolume = 1f;
+
+        SetAllVolumes();
+    }
+
+    public void PutSoundOFF()
+    {
+        isSoundON = false;
+        mainVolume = 0f;
+
+        SetAllVolumes();
+    }
+
+    void SetAllVolumes()
+    {
+        for (int i = 0; i < NbSource; i++)
+        {
+            audioSources[i].volume = mainVolume;
+        }
+
+        musicSource.volume = mainVolume;
     }
 }
