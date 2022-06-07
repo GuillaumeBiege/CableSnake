@@ -8,6 +8,7 @@ public class LevelButton : MonoBehaviour
     //References
     [SerializeField] Button button = default;
     [SerializeField] Text text = default;
+    [SerializeField] Text textScore = default;
     [SerializeField] MainMenuManager mainMenu = default;
 
     //Variables
@@ -16,7 +17,6 @@ public class LevelButton : MonoBehaviour
     private void Awake()
     {
         button = GetComponent<Button>();
-        text = GetComponentInChildren<Text>();
 
         mainMenu = FindObjectOfType<MainMenuManager>();
 
@@ -28,6 +28,20 @@ public class LevelButton : MonoBehaviour
         LevelID = _id;
 
         text.text = "Level " + _id.ToString();
+        textScore.text = "Best score : " + LevelAndProgressionManager.Instance.GetLevelScore(LevelID).ToString();
+
+        if(LevelID > 1)
+        {
+            if (LevelAndProgressionManager.Instance.GetLevelComplet(LevelID - 1))
+            {
+                button.interactable = true;
+            }
+            else
+            {
+                button.interactable = false;
+            }
+        }
+            
     }
 
     public void Click()

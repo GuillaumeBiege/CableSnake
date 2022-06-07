@@ -128,6 +128,9 @@ public class GameManager : MonoBehaviour
 
         SoundManager.Instance.StopMusic();
         SoundManager.Instance.PlayVictory();
+
+        //Save the play progression
+        LevelAndProgressionManager.Instance.SaveHighScoreFromGame(SceneManager.GetActiveScene().buildIndex, currentFoodNumber);
     }
     #endregion
 
